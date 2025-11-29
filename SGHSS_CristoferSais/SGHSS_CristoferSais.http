@@ -1,0 +1,6 @@
+@SGHSS_CristoferSais_HostAddress = http://localhost:5208
+
+GET {{SGHSS_CristoferSais_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
