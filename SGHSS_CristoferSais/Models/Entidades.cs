@@ -54,8 +54,6 @@ namespace SGHSS_CristoferSais.Models
         public int Id { get; set; }
         public DateTime DataHora { get; set; }
         public string Status { get; set; } = "Agendada";
-
-        // Lógica de Telemedicina
         public bool IsTeleconsulta { get; set; }
         public string? LinkSalaVirtual { get; set; }
 

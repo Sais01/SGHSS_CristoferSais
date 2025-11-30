@@ -18,21 +18,18 @@ namespace SGHSS_CristoferSais.Controllers
             _context = context;
         }
 
-        // Endpoint Público para criar conta (Sign-up)
         [HttpPost("registrar")]
         public async Task<IActionResult> Registrar([FromBody] RegisterPacienteDto dto)
         {
-            // 1. Criar Usuário de Login
             var usuario = new Usuario
             {
                 Email = dto.Email,
-                Senha = dto.Senha, // Simulação. Use BCrypt na vida real.
+                Senha = dto.Senha,
                 Funcao = "Paciente"
             };
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
-            // 2. Criar Perfil de Paciente
             var paciente = new Paciente
             {
                 Nome = dto.Nome,
@@ -46,7 +43,6 @@ namespace SGHSS_CristoferSais.Controllers
             return CreatedAtAction(nameof(GetById), new { id = paciente.Id }, paciente);
         }
 
-        // Endpoint Protegido (Só com Cadeado/Token)
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetAll()

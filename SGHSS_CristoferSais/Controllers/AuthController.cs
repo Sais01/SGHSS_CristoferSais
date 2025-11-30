@@ -28,7 +28,7 @@ namespace SGHSS_CristoferSais.Controllers
         {
             // 1. Verificar se usuário existe
             var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(u => u.Email == model.Email && u.Senha == model.Senha); // Nota: Em prod, use hash real!
+                .FirstOrDefaultAsync(u => u.Email == model.Email && u.Senha == model.Senha);
 
             if (usuario == null)
                 return Unauthorized("Usuário ou senha inválidos");
